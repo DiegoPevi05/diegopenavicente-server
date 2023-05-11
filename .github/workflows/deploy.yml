@@ -36,14 +36,14 @@ jobs:
         echo "${SLACK_MESSAGE}"
         ssh -p 65002 u996714911@145.14.151.58 'cd /home/u996714911/domains/diegopenavicente.com/public_html/server/ && git pull'
         curl -X POST -H 'Content-type: application/json' --data '{"text":"'"${SLACK_MESSAGE}"'"}' ${{ secrets.SLACK_WEBHOOK_URL }}
-    - name: Execute migrations
-      env:
-        SLACK_MESSAGE: "Executing migrations on the server :mysql:"
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      run: |
-        echo "${SLACK_MESSAGE}"
-        ssh -p 65002 u996714911@145.14.151.58 'cd /home/u996714911/domains/diegopenavicente.com/public_html/server/ && php artisan migrate:refresh'
-        curl -X POST -H 'Content-type: application/json' --data '{"text":"'"${SLACK_MESSAGE}"'"}' ${{ secrets.SLACK_WEBHOOK_URL }}
+    #- name: Execute migrations
+        #env:
+        #SLACK_MESSAGE: "Executing migrations on the server :mysql:"
+        #SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      #run: |
+        #echo "${SLACK_MESSAGE}"
+        #ssh -p 65002 u996714911@145.14.151.58 'cd /home/u996714911/domains/diegopenavicente.com/public_html/server/ && php artisan migrate:refresh'
+        #curl -X POST -H 'Content-type: application/json' --data '{"text":"'"${SLACK_MESSAGE}"'"}' ${{ secrets.SLACK_WEBHOOK_URL }}
     - name: App Deploy
       env:
         SLACK_MESSAGE: "Laravel App deployed to server successfully :laravel:"
