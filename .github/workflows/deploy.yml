@@ -16,7 +16,6 @@ jobs:
         CHANGES=$(git diff --name-only HEAD^ HEAD -- database)
         echo "::set-output name=changes::$CHANGES"
         curl -X POST -H 'Content-type: application/json' --data '{"text":"'"${SLACK_MESSAGE}"'"}' ${{ secrets.SLACK_WEBHOOK_URL }}
-
     - name: Initialize Deploy
       env:
         SLACK_MESSAGE: "Initialize deploy of Diego Personal Page to Hostinger Server :github:"
