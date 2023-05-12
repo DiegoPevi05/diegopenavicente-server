@@ -7,8 +7,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Check repository folder changes
-      id: repo_folder_changes
+    - id: repo_folder_changes
+      name: Check repository folder changes
       env:
         SLACK_MESSAGE: "Check for difference to make migrations :github:"
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
