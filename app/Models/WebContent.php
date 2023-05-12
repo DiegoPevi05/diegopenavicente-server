@@ -14,6 +14,7 @@ class WebContent extends Model
         protected $fillable = [
             'name',
             'content_es',
-            'content_en'
+            'content_en',
+            'content_it',
         ];
 }

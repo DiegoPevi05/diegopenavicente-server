@@ -78,9 +78,11 @@ class WebContentController extends Controller
         $validatedData = $request->validate([
             'content_es'=> 'required|string',
             'content_en'=> 'required|string',
+            'content_it'=> 'required|string',
         ], [
             'content_es.required' => 'El contenido en español es requerido.',
             'content_en.required' => 'El contenido en ingles es requerido.',
+            'content_it.required' => 'El contenido en italiano es requerido.',
         ]);
 
         try {

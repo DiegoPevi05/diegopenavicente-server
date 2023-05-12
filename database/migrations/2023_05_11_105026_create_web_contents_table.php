@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name',255)->default('N/A');
             $table->text('content_es')->default('N/A');
             $table->text('content_en')->default('N/A');
+            $table->text('content_it')->default('N/A');
             $table->timestamps();
         });
     }

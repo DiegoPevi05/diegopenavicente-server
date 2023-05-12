@@ -28,6 +28,13 @@
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
+        <div class="form-group">
+            <label for="content_it">Contenido en italiano</label>
+            <textarea type="text" class="form-control @error('content_it') is-invalid @enderror" id="content_it" name="content_it">{{  $item->content_it }}</textarea>
+            @error('content_it')
+                <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+        </div>
         <div class="d-flex justify-content-center my-4">
           <button type="submit" class="btn btn-primary w-auto">Actualizar</button>
         </div>
