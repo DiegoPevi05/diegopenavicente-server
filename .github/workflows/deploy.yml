@@ -7,6 +7,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - name: Check repository folder changes
+      id: repo_folder_changes
+      env:
+        SLACK_MESSAGE: "Check for difference to make migrations :github:"
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      run: |
+        CHANGES=$(git diff --name-only HEAD^ HEAD -- database)
+        echo "::set-output name=changes::$CHANGES"
+        curl -X POST -H 'Content-type: application/json' --data '{"text":"'"${SLACK_MESSAGE}"'"}' ${{ secrets.SLACK_WEBHOOK_URL }}
     - name: Initialize Deploy
       env:
         SLACK_MESSAGE: "Initialize deploy of Diego Personal Page to Hostinger Server :github:"
@@ -37,10 +46,11 @@ jobs:
         ssh -p 65002 u996714911@145.14.151.58 'cd /home/u996714911/domains/diegopenavicente.com/public_html/server/ && git pull'
         curl -X POST -H 'Content-type: application/json' --data '{"text":"'"${SLACK_MESSAGE}"'"}' ${{ secrets.SLACK_WEBHOOK_URL }}
    - name: Execute migrations
+      if: steps.repo_folder_changes.outputs.changes != ''
       env:
        SLACK_MESSAGE: "Executing migrations on the server :mysql:"
        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-       run: |
+      run: |
         echo "${SLACK_MESSAGE}"
         ssh -p 65002 u996714911@145.14.151.58 'cd /home/u996714911/domains/diegopenavicente.com/public_html/server/ && php artisan migrate:refresh'
         curl -X POST -H 'Content-type: application/json' --data '{"text":"'"${SLACK_MESSAGE}"'"}' ${{ secrets.SLACK_WEBHOOK_URL }}
