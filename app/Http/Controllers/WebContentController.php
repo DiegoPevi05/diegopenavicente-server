@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\WebContent;
 use App\Models\Experience;
+use App\Models\Project;
 use App\Models\Skill;
 use App\Models\Book;
 
@@ -23,6 +24,7 @@ class WebContentController extends Controller
 
         $webContent = WebContent::all();
         $experiences = Experience::all();
+        $projects = Project::all();
         $skills = Skill::all();
         $books = Book::all();
 
@@ -30,6 +32,7 @@ class WebContentController extends Controller
             'webContent' => $webContent,
             'experiences' => $experiences,
             'skills' => $skills,
+            'projects' => $projects,
             'books' => $books
         ]);
     }
