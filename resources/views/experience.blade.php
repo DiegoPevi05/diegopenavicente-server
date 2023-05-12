@@ -34,21 +34,21 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="details_es">Detalles en Español</label>
+            <label for="details_es">Detalles en Español (Separados por | )</label>
             <textarea class="form-control @error('details_es') is-invalid @enderror" id="details_es" name="details_es"></textarea>
             @error('details_es')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
-            <label for="details_en">Detalles en Ingles</label>
+            <label for="details_en">Detalles en Ingles (Separados por | ) </label>
             <textarea class="form-control @error('details_en') is-invalid @enderror" id="details_en" name="details_en"></textarea>
             @error('details_en')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
-            <label for="details_en">Detalles en Italiano</label>
+            <label for="details_en">Detalles en Italiano (Separados por | )</label>
             <textarea class="form-control @error('details_it') is-invalid @enderror" id="details_it" name="details_it"></textarea>
             @error('details_it')
                 <span class="invalid-feedback">{{ $message }}</span>
@@ -139,22 +139,22 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="details_es">Detalles en Español</label>
-            <textarea class="form-control @error('details_es') is-invalid @enderror" id="details_es" name="details_es">{{ old('details_es', implode(',', json_decode($experience->details_es))) }}</textarea>
+            <label for="details_es">Detalles en Español (Separados por | )</label>
+            <textarea class="form-control @error('details_es') is-invalid @enderror" id="details_es" name="details_es">{{ old('details_es', implode('|', json_decode($experience->details_es))) }}</textarea>
             @error('details_es')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
-            <label for="details_en">Detalles en Ingles</label>
-            <textarea class="form-control @error('details_en') is-invalid @enderror" id="details_en" name="details_en">{{ old('details_en', implode(',', json_decode($experience->details_en))) }}</textarea>
+            <label for="details_en">Detalles en Ingles (Separados por | )</label>
+            <textarea class="form-control @error('details_en') is-invalid @enderror" id="details_en" name="details_en">{{ old('details_en', implode('|', json_decode($experience->details_en))) }}</textarea>
             @error('details_en')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
-            <label for="details_en">Detalles en Italiano</label>
-            <textarea class="form-control @error('details_it') is-invalid @enderror" id="details_it" name="details_it">{{ old('details_it', implode(',', json_decode($experience->details_it))) }}</textarea>
+            <label for="details_en">Detalles en Italiano (Separados por | )</label>
+            <textarea class="form-control @error('details_it') is-invalid @enderror" id="details_it" name="details_it">{{ old('details_it', implode('|', json_decode($experience->details_it))) }}</textarea>
             @error('details_it')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror

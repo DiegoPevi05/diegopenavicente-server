@@ -57,7 +57,7 @@ class SkillController extends Controller
         // validate if the field is not empty and is a string
         if (!empty($request->keywords) && is_string($request->keywords)) {
 
-            $keywords_raw = explode(',', $request->keywords);
+            $keywords_raw = explode('|', $request->keywords);
 
             foreach ($keywords_raw as $bullet) {
                 $bullet = trim($bullet);
@@ -144,7 +144,7 @@ class SkillController extends Controller
         // validate if the field is not empty and is a string
         if (!empty($request->keywords) && is_string($request->keywords)) {
 
-            $keywords_raw = explode(',', $request->keywords);
+            $keywords_raw = explode('|', $request->keywords);
 
             foreach ($keywords_raw as $bullet) {
                 $bullet = trim($bullet);

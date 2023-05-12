@@ -41,7 +41,7 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="languages">lenguajes (separados por comas)</label>
+            <label for="languages">lenguajes (separados por | )</label>
             <input type="text" class="form-control @error('languages') is-invalid @enderror" id="languages" name="languages">
             @error('languages')
                 <span class="invalid-feedback">{{ $message }}</span>
@@ -73,21 +73,21 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="description_es">Detalles en Español</label>
+            <label for="description_es">Descripciòn en Español</label>
             <textarea class="form-control @error('description_es') is-invalid @enderror" id="description_es" name="description_es">{{ old('description_es', $project->description_es) }}</textarea>
             @error('description_es')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
-            <label for="description_en">Detalles en Ingles</label>
+            <label for="description_en">Descripciòn en Ingles</label>
             <textarea class="form-control @error('description_en') is-invalid @enderror" id="description_en" name="description_en">{{ old('description_en', $project->description_en) }}</textarea>
             @error('description_en')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
-            <label for="description_en">Detalles en Italiano</label>
+            <label for="description_en">Descripciòn en Italiano</label>
             <textarea class="form-control @error('description_it') is-invalid @enderror" id="description_it" name="description_it">{{ old('description_it', $project->description_it) }}</textarea>
             @error('description_it')
                 <span class="invalid-feedback">{{ $message }}</span>
@@ -103,7 +103,7 @@
         <div class="form-group">
             <label for="languages">lenguajes (separados por comas)</label>
             <input type="text" class="form-control @error('languages') is-invalid @enderror" id="languages" name="languages"
-            value="{{ old('languages', implode(',', json_decode($project->languages))) }}">
+            value="{{ old('languages', implode('|', json_decode($project->languages))) }}">
             @error('languages')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror

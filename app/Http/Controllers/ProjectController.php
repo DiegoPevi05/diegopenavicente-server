@@ -60,7 +60,7 @@ class ProjectController extends Controller
         // validate if the field is not empty and is a string
         if (!empty($request->languages) && is_string($request->languages)) {
 
-            $languages_raw = explode(',', $request->languages);
+            $languages_raw = explode('|', $request->languages);
 
             foreach ($languages_raw as $bullet) {
                 $bullet = trim($bullet);
@@ -151,7 +151,7 @@ class ProjectController extends Controller
         // validate if the field is not empty and is a string
         if (!empty($request->languages) && is_string($request->languages)) {
 
-            $languages_raw = explode(',', $request->languages);
+            $languages_raw = explode('|', $request->languages);
 
             foreach ($languages_raw as $bullet) {
                 $bullet = trim($bullet);

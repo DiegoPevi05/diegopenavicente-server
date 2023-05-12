@@ -87,7 +87,7 @@ class ExperienceController extends Controller
         // validate if the field is not empty and is a string
         if (!empty($request->details_es) && is_string($request->details_es)) {
 
-            $details_es_raw = explode(',', $request->details_es);
+            $details_es_raw = explode('|', $request->details_es);
 
             foreach ($details_es_raw as $detail) {
                 $detail = trim($detail);
@@ -101,7 +101,7 @@ class ExperienceController extends Controller
         // validate if the field is not empty and is a string
         if (!empty($request->details_en) && is_string($request->details_en)) {
 
-            $details_en_raw = explode(',', $request->details_en);
+            $details_en_raw = explode('|', $request->details_en);
 
             foreach ($details_en_raw as $detail) {
                 $detail = trim($detail);
@@ -115,7 +115,7 @@ class ExperienceController extends Controller
         // validate if the field is not empty and is a string
         if (!empty($request->details_it) && is_string($request->details_it)) {
 
-            $details_it_raw = explode(',', $request->details_it);
+            $details_it_raw = explode('|', $request->details_it);
 
             foreach ($details_it_raw as $detail) {
                 $detail = trim($detail);
@@ -263,7 +263,7 @@ class ExperienceController extends Controller
         // validate if the field is not empty and is a string
         if (!empty($request->details_es) && is_string($request->details_es)) {
 
-            $details_es_raw = explode(',', $request->details_es);
+            $details_es_raw = explode('|', $request->details_es);
 
             foreach ($details_es_raw as $detail) {
                 $detail = trim($detail);
@@ -277,7 +277,7 @@ class ExperienceController extends Controller
         // validate if the field is not empty and is a string
         if (!empty($request->details_en) && is_string($request->details_en)) {
 
-            $details_en_raw = explode(',', $request->details_en);
+            $details_en_raw = explode('|', $request->details_en);
 
             foreach ($details_en_raw as $detail) {
                 $detail = trim($detail);
@@ -291,7 +291,7 @@ class ExperienceController extends Controller
         // validate if the field is not empty and is a string
         if (!empty($request->details_it) && is_string($request->details_it)) {
 
-            $details_it_raw = explode(',', $request->details_it);
+            $details_it_raw = explode('|', $request->details_it);
 
             foreach ($details_it_raw as $detail) {
                 $detail = trim($detail);
