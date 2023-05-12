@@ -36,19 +36,13 @@ class ExperienceController extends Controller
             'job_es'=> 'required|string|max:255',
             'job_en' => 'required|string|max:255',
             'job_it' => 'required|string|max:255',
-            'company'=> 'required|string|max:255',
-            'details_es' => 'required|string',
-            'details_en'=> 'required|string',
-            'details_it' => 'required|string'
+            'company'=> 'required|string|max:255'
         ], [
 
             'job_es.required' => 'La Trabajo en español es requerido.',
             'job_en.required' => 'El Trabajo en ingles es requerido.',
             'job_it.required' => 'El Trabajo en italiano es requerido.',
             'company.required' => 'La compañia contenido es requerido.',
-            'details_es.required' => 'El contenido en español es requerido.',
-            'details_en.required' => 'El contenido en ingles es requerido.',
-            'details_it.required' => 'El contenido en italiano  es requerido.',
 
             'title_es.max' => 'El numero de caracteres no debe ser superior  :max characters.',
             'title_en.max' => 'El numero de caracteres no debe ser superior a  :max characters.'
@@ -89,14 +83,56 @@ class ExperienceController extends Controller
             $file4->move($destinationPath,$fileName4);
         }
 
+        $details_es = [];
+        // validate if the field is not empty and is a string
+        if (!empty($request->details_es) && is_string($request->details_es)) {
+
+            $details_es_raw = explode(',', $request->details_es);
+
+            foreach ($details_es_raw as $detail) {
+                $detail = trim($detail);
+                if (!empty($detail) && is_string($detail)) {
+                    $details_es[] = $detail;
+                }
+            }
+        }
+
+        $details_en = [];
+        // validate if the field is not empty and is a string
+        if (!empty($request->details_en) && is_string($request->details_en)) {
+
+            $details_en_raw = explode(',', $request->details_en);
+
+            foreach ($details_en_raw as $detail) {
+                $detail = trim($detail);
+                if (!empty($detail) && is_string($detail)) {
+                    $details_en[] = $detail;
+                }
+            }
+        }
+
+        $details_it = [];
+        // validate if the field is not empty and is a string
+        if (!empty($request->details_it) && is_string($request->details_it)) {
+
+            $details_it_raw = explode(',', $request->details_it);
+
+            foreach ($details_it_raw as $detail) {
+                $detail = trim($detail);
+                if (!empty($detail) && is_string($detail)) {
+                    $details_it[] = $detail;
+                }
+            }
+        }
+
 
         $experience->job_es               = $request->job_es;
         $experience->job_en               = $request->job_en;
         $experience->job_it               = $request->job_it;
         $experience->company              = $request->company;
-        $experience->details_es           = $request->details_es;
-        $experience->details_en           = $request->details_en;
-        $experience->details_it           = $request->details_it;
+        $experience->details_es           = json_encode($details_es);
+        $experience->details_en           = json_encode($details_en);
+        $experience->details_it           = json_encode($details_it);
         $experience->startDate            = $request->startDate;
         $experience->endDate              = $request->endDate;
 
@@ -155,19 +191,13 @@ class ExperienceController extends Controller
             'job_es'=> 'required|string|max:255',
             'job_en' => 'required|string|max:255',
             'job_it' => 'required|string|max:255',
-            'company'=> 'required|string|max:255',
-            'details_es' => 'required|string',
-            'details_en'=> 'required|string',
-            'details_it' => 'required|string'
+            'company'=> 'required|string|max:255'
         ], [
 
             'job_es.required' => 'La Trabajo en español es requerido.',
             'job_en.required' => 'El Trabajo en ingles es requerido.',
             'job_it.required' => 'El Trabajo en italiano es requerido.',
             'company.required' => 'La compañia contenido es requerido.',
-            'details_es.required' => 'El contenido en español es requerido.',
-            'details_en.required' => 'El contenido en ingles es requerido.',
-            'details_it.required' => 'El contenido en italiano  es requerido.',
 
             'title_es.max' => 'El numero de caracteres no debe ser superior  :max characters.',
             'title_en.max' => 'El numero de caracteres no debe ser superior a  :max characters.'
@@ -229,14 +259,56 @@ class ExperienceController extends Controller
             $file4->move($destinationPath,$fileName4);
         }
 
+        $details_es = [];
+        // validate if the field is not empty and is a string
+        if (!empty($request->details_es) && is_string($request->details_es)) {
+
+            $details_es_raw = explode(',', $request->details_es);
+
+            foreach ($details_es_raw as $detail) {
+                $detail = trim($detail);
+                if (!empty($detail) && is_string($detail)) {
+                    $details_es[] = $detail;
+                }
+            }
+        }
+
+        $details_en = [];
+        // validate if the field is not empty and is a string
+        if (!empty($request->details_en) && is_string($request->details_en)) {
+
+            $details_en_raw = explode(',', $request->details_en);
+
+            foreach ($details_en_raw as $detail) {
+                $detail = trim($detail);
+                if (!empty($detail) && is_string($detail)) {
+                    $details_en[] = $detail;
+                }
+            }
+        }
+
+        $details_it = [];
+        // validate if the field is not empty and is a string
+        if (!empty($request->details_it) && is_string($request->details_it)) {
+
+            $details_it_raw = explode(',', $request->details_it);
+
+            foreach ($details_it_raw as $detail) {
+                $detail = trim($detail);
+                if (!empty($detail) && is_string($detail)) {
+                    $details_it[] = $detail;
+                }
+            }
+        }
+
 
         $experience->job_es               = $request->job_es;
         $experience->job_en               = $request->job_en;
         $experience->job_it               = $request->job_it;
         $experience->company              = $request->company;
-        $experience->details_es           = $request->details_es;
-        $experience->details_en           = $request->details_en;
-        $experience->details_it           = $request->details_it;
+        $experience->details_es           = json_encode($details_es);
+        $experience->details_en           = json_encode($details_en);
+        $experience->details_it           = json_encode($details_it);
         $experience->startDate            = $request->startDate;
         $experience->endDate              = $request->endDate;
 

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('job_en',255)->default('N/A');
             $table->string('job_it',255)->default('N/A');
             $table->string('company',255)->default('N/A');
-            $table->longText('details_es')->default('N/A');
-            $table->longText('details_en')->default('N/A');
-            $table->longText('details_it')->default('N/A');
+            $table->json('details_es');
+            $table->json('details_en');
+            $table->json('details_it');
             $table->dateTime('startDate')->nullable();
             $table->dateTime('endDate')->nullable();
             $table->longText('image1')->default('N/A');
