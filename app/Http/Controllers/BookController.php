@@ -66,7 +66,7 @@ class BookController extends Controller
 
 
         if($fileName != ''){
-           $book->img = '/images/skills/'. $fileName;
+           $book->img = '/images/books/'. $fileName;
         }
 
 
@@ -144,7 +144,7 @@ class BookController extends Controller
 
 
         if($fileName != ''){
-           $book->img = '/images/skills/'. $fileName;
+           $book->img = '/images/books/'. $fileName;
         }
 
 
