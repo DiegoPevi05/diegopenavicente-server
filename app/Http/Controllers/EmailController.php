@@ -13,7 +13,8 @@ class EmailController extends Controller
     {
         // Check the Authorization header
         $authHeader = $request->header('Authorization');
-        if ($authHeader !== 'diegopenavicente2023') {
+        $AuthHeaderCode = env('MAIL_HEADER_SENDER');
+        if ($authHeader !== $AuthHeaderCode) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
