@@ -58,6 +58,7 @@ class BookController extends Controller
         }
 
         $book->title                   = $request->title;
+        $book->type                    = $request->type;
         $book->author                  = $request->author;
         $book->content_es              = $request->content_es;
         $book->content_en              = $request->content_en;
@@ -119,15 +120,17 @@ class BookController extends Controller
             'href.required' => 'El enlace es requerido.'
         ]);
 
-        $imagePath = public_path($book->img);
-
-        if (file_exists($imagePath)) {
-            unlink($imagePath);
-        }
-
 
         $fileName = '';
         if ($request->hasFile('img') && $request->file('img')->isValid()) {
+
+            //delete previous image
+            $imagePath = public_path($book->img);
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+
+            //load new image
             $file = $request->file('img');
             $extension = $file->extension();
             $fileName = 'books_'.time().'.' .$extension;
@@ -136,6 +139,7 @@ class BookController extends Controller
         }
 
         $book->title                   = $request->title;
+        $book->type                    = $request->type;
         $book->author                  = $request->author;
         $book->content_es              = $request->content_es;
         $book->content_en              = $request->content_en;

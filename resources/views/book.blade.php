@@ -13,6 +13,16 @@
             @enderror
         </div>
         <div class="form-group">
+            <label for="type">Tipo de libro</label>
+            <select class="form-control @error('type') is-invalid @enderror" id="type" name="type">
+                <option value="code">Code</option>
+                <option value="cultural">Cultural</option>
+            </select>
+            @error('type')
+                <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="form-group">
             <label for="author">Autor del libro</label>
             <input type="text" class="form-control @error('author') is-invalid @enderror" id="author" name="author">
             @error('author')
@@ -69,6 +79,16 @@
             <label for="title">Nombre de la book</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('book', $book->title) }}">
             @error('title')
+                <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="form-group">
+            <label for="type">Secciòn de Producto</label>
+            <select class="form-control @error('type') is-invalid @enderror" id="type" name="type">
+                <option value="code" {{$book->type == "code" ? 'selected' : ''}}>Code</option>
+                <option value="cultural" {{$book->type == "cultural" ? 'selected' : ''}}>Cultural</option>
+            </select>
+            @error('type')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
