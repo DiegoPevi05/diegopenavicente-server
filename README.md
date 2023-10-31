@@ -40,7 +40,7 @@ composer dump-autoload
 
 Here are some screenshots showcasing the dashboard in action:
 
-![Image1](https://github.com/DiegoPevi05/diegopenavicente-server/blob/main/public/github/dashboard_1.png?raw=true)
-![Image2](https://github.com/DiegoPevi05/diegopenavicente-server/blob/main/public/github/dashboard_2.png?raw=true)
+![Image1](https://github.com/DiegoPevi05/diegopenavicente-server/blob/main/public/dashboard_1.png?raw=true)
+![Image2](https://github.com/DiegoPevi05/diegopenavicente-server/blob/main/public/dashboard_2.png?raw=true)
 
 Thank you for exploring the content of this README.md file. If you have any questions or suggestions, please feel free to reach out!
