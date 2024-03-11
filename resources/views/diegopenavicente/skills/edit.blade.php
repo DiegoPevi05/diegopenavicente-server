@@ -104,7 +104,7 @@
                     @enderror
                 </div>
                 <div class="d-flex justify-content-start my-4">
-                    <button type="submit" class="btn btn-indigo w-auto">Editar Skill</button>
+                    <button type="submit" class="btn btn-indigo w-auto">Actualizar Skill</button>
                 </div>  
             </div>
         </form>

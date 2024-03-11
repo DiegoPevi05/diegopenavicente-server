@@ -65,6 +65,7 @@ php artisan serve
 
 ### Envrionment variables
 You have to  set the variables in a .env file in the root directory if you plan to build the app for production:
+        
         1.  FRONTEND_URL= Landing page link
         2.  BACKEND_URL_IMAGE= /server/public by default if your server is running 
         3.  ADMIN_USERNAME= admin username credential
@@ -83,6 +84,7 @@ You have to  set the variables in a .env file in the root directory if you plan 
         16. DB_DATABASE= Databse name
         17. DB_USERNAME= Database username
         18. DB_PASSWORD= Database password
+        19. BACKEND_URL= Backend url
 
 ## Screenshots
 
