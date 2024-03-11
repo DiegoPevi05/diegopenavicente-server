@@ -183,7 +183,7 @@
                 @enderror
             </div>
             <div class="d-flex justify-content-start my-4">
-                <button type="submit" class="btn btn-indigo w-auto">Crear Libro</button>
+                <button type="submit" class="btn btn-indigo w-auto">Crear Experiencia</button>
             </div>  
         </div>
     </form>

@@ -28,7 +28,7 @@ async function fetchSkills(event) {
     
     try {
         // Fetch skills data
-        const response = await fetch(`{{env('BACKEND_URL')}}/search-skills?name=${encodeURIComponent(title)}`);
+        const response = await fetch(`{{env('BACKEND_URL')}}/search-skills?title=${encodeURIComponent(title)}`);
         const data = await response.json();
         
         // Clear previous skills
