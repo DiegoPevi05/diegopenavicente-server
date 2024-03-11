@@ -33,7 +33,7 @@ class SkillController extends Controller
     public function SearchByTitle(Request $request)
     {
         $title = $request->query('title');
-        $skills = Skill::whereRaw('LOWER(title) like ?', ["%$title%"])
+        $skills = Skill::whereRaw('title like ?', ["%$title"])
             ->select('id', 'title')
             ->limit(5)
             ->get();
