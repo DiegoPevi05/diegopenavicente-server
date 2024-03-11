@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('web_contents', function (Blueprint $table) {
             $table->id();
-            $table->string('name',255)->default('N/A');
-            $table->text('content_es')->default('N/A');
-            $table->text('content_en')->default('N/A');
-            $table->text('content_it')->default('N/A');
+            $table->string('name',255)->nullable(false);
+            $table->text('content_es')->nullable(false);
+            $table->text('content_en')->nullable(false);
+            $table->text('content_it')->nullable(false);
             $table->timestamps();
         });
     }

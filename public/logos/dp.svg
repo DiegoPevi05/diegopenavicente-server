@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 248.35">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #82d0f5;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #111e31;
+      }
+
+      .cls-3 {
+        fill: #3c3c3b;
+      }
+
+      .cls-4 {
+        fill: #c6c6c6;
+      }
+
+      .cls-5 {
+        fill: #575756;
+      }
+    </style>
+  </defs>
+  <g id="line1">
+    <rect class="cls-2" x="0" y="0" width="169.66" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line2">
+    <rect class="cls-1" x="2.54" y="70.96" width="82.29" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line3">
+    <rect class="cls-2" x=".5" y="141.91" width="212.84" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line4">
+    <rect class="cls-2" x=".49" y="212.87" width="170.18" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line5">
+    <rect class="cls-3" x="103.22" y="70.96" width="133.7" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line6">
+    <rect class="cls-1" x="214.33" y="0" width="297.67" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line7">
+    <rect class="cls-4" x="213.33" y="212.87" width="177.42" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line8">
+    <rect class="cls-1" x="239.98" y="141.91" width="104.74" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line9">
+    <rect class="cls-2" x="255.99" y="70.96" width="110.65" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line10">
+    <rect class="cls-2" x="366.64" y="141.91" width="145.35" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line11">
+    <rect class="cls-2" x="407.25" y="212.87" width="104.74" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+  <g id="line12">
+    <rect class="cls-5" x="378.3" y="70.96" width="133.7" height="35.48" rx="13.05" ry="13.05"/>
+  </g>
+</svg>

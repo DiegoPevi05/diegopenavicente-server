@@ -17,15 +17,16 @@ return new class extends Migration
             $table->string('job_en',255)->default('N/A');
             $table->string('job_it',255)->default('N/A');
             $table->string('company',255)->default('N/A');
-            $table->json('details_es');
-            $table->json('details_en');
-            $table->json('details_it');
+            $table->boolean('is_active')->nullable();
+            $table->text('details_es');
+            $table->text('details_en');
+            $table->text('details_it');
             $table->dateTime('startDate')->nullable();
             $table->dateTime('endDate')->nullable();
-            $table->longText('image1')->default('N/A');
-            $table->longText('image2')->default('N/A');
-            $table->longText('image3')->default('N/A');
-            $table->longText('image4')->default('N/A');
+            $table->longText('image1')->nullable(false);
+            $table->longText('image2')->nullable(true);
+            $table->longText('image3')->nullable(true);
+            $table->longText('image4')->nullable(true);
             $table->timestamps();
         });
     }

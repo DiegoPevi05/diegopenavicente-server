@@ -1,7 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\diegopenavicente\BookController;
+use App\Http\Controllers\diegopenavicente\ExperienceController;
+use App\Http\Controllers\diegopenavicente\SkillController;
+use App\Http\Controllers\diegopenavicente\ProjectController;
+use App\Http\Controllers\diegopenavicente\WebContentController;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,40 +22,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::post('/loginSend', [App\Http\Controllers\UserController::class, 'login'])->name('home.loginSend');
-Route::post('/registerSend', [App\Http\Controllers\UserController::class, 'register'])->name('home.registerSend');
-Route::post('/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('home.logout');
-
-Route::get('/login', [App\Http\Controllers\UserController::class, 'showLoginForm'])->name('login');
-Route::get('/register', [App\Http\Controllers\UserController::class, 'showRegistrationForm'])->name('register');
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('login', [AuthController::class, 'login']);
+Route::get('terms-of-service', [AuthController::class, 'showTermsOfService'])->name('terms-of-service');
+Route::get('recover-password', [AuthController::class, 'showRecoverPasswordForm'])->name('recover-password');
+Route::post('recover-password', [AuthController::class, 'recoverPassword']);
 
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/webcontent', [App\Http\Controllers\WebContentController::class, 'index'])->name('webcontent');
-    Route::put('webcontent/{id}/update', [App\Http\Controllers\WebContentController::class, 'update'])->name('contentweb.updatecontent');
+    Route::post('logout',[AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/experiences', [App\Http\Controllers\ExperienceController::class, 'index'])->name('experiences');
-    Route::put('experiences/{id}/update', [App\Http\Controllers\ExperienceController::class, 'update'])->name('experiences.updateExperience');
-    Route::post('experiences/create', [App\Http\Controllers\ExperienceController::class, 'store'])->name('experiences.storeExperience');
-    Route::delete('experiences/{id}/delete', [App\Http\Controllers\ExperienceController::class, 'destroy'])->name('experiences.deleteExperience');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::resource('home', HomeController::class);
+    Route::resource('user-profile', UserProfileControllers::class);
 
-    Route::get('/projects', [App\Http\Controllers\ProjectController::class, 'index'])->name('projects');
-    Route::put('projects/{id}/update', [App\Http\Controllers\ProjectController::class, 'update'])->name('projects.updateProject');
-    Route::post('projects/create', [App\Http\Controllers\ProjectController::class, 'store'])->name('projects.storeProject');
-    Route::delete('projects/{id}/delete', [App\Http\Controllers\ProjectController::class, 'destroy'])->name('projects.deleteProject');
+    Route::middleware('role:' . User::ROLE_ADMIN)->group(function () {
+        Route::resource('users', UserController::class);
+        Route::resource('books', BookController::class);
+        Route::resource('experiences', ExperienceController::class);
+        Route::resource('skills', SkillController::class);
+        Route::resource('projects', ProjectController::class);
+        Route::resource('webcontents', WebContentController::class);
+        Route::get('/search-skills',[SkillController::class,'SearchByTitle']);
+        
+    });
 
-    Route::get('/skills', [App\Http\Controllers\SkillController::class, 'index'])->name('skills');
-    Route::put('skills/{id}/update', [App\Http\Controllers\SkillController::class, 'update'])->name('skills.updateSkill');
-    Route::post('skills/create', [App\Http\Controllers\SkillController::class, 'store'])->name('skills.storeSkill');
-    Route::delete('skills/{id}/delete', [App\Http\Controllers\SkillController::class, 'destroy'])->name('skills.deleteSkill');
-
-    Route::get('/books', [App\Http\Controllers\BookController::class, 'index'])->name('books');
-    Route::put('books/{id}/update', [App\Http\Controllers\BookController::class, 'update'])->name('books.updateBook');
-    Route::post('books/create', [App\Http\Controllers\BookController::class, 'store'])->name('books.storeBook');
-    Route::delete('books/{id}/delete', [App\Http\Controllers\BookController::class, 'destroy'])->name('books.deleteBook');
-
+    Route::middleware('role:' . User::ROLE_CLIENT)->group(function () {
+        Route::resource('user-profile', UserProfileController::class)->only(['show', 'edit', 'update']);
+    });
 });
 

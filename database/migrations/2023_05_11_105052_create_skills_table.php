@@ -18,7 +18,7 @@ return new class extends Migration
             $table->longText('description_es')->default('N/A');
             $table->longText('description_en')->default('N/A');
             $table->longText('description_it')->default('N/A');
-            $table->json('keywords');
+            $table->text('keywords');
             $table->timestamps();
         });
     }

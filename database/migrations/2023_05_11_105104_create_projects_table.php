@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('project',255)->default('N/A');
-            $table->longText('logo')->default('N/A');
-            $table->longText('description_es')->default('N/A');
-            $table->longText('description_en')->default('N/A');
-            $table->longText('description_it')->default('N/A');
-            $table->longText('link')->default('N/A');
-            $table->json('languages');
+            $table->string('project',255)->nullable(false);
+            $table->longText('logo')->nullable(false);
+            $table->longText('description_es')->nullable(false);
+            $table->longText('description_en')->nullable(false);
+            $table->longText('description_it')->nullable(false);
+            $table->longText('link')->nullable(false);
+            $table->longText('github')->nullable(true);
             $table->timestamps();
         });
     }

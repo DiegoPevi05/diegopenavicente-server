@@ -16,7 +16,17 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('recover_token_time')->nullable();
+            $table->enum('role', ['ADMIN','CLIENT'])->default('CLIENT')->nullable(false);
+            $table->enum('billing_cycle', ['MONTHLY','YEARLY','ONE_TIME'])->default('MONTHLY')->nullable(true);
+            $table->integer('billing_day')->nullable(true);
+            $table->integer('billing_month')->nullable(true);
+            $table->decimal('gross_amount', 8, 2)->nullable(true);
+            $table->string('package')->nullable(false);
             $table->string('password');
+            $table->decimal('unique_payment', 8, 2)->nullable(true);
+            $table->string('logo')->nullable(true);
+            $table->string('website')->nullable(true);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmailController;
-use App\Http\Controllers\WebContentController;
+use App\Http\Controllers\ApiWebController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/send-email', [EmailController::class, 'sendEmail']);
-Route::get('/content-web/all', [WebContentController::class, 'getAllData']);
+Route::middleware('api_key')->group(function () {
+    Route::post('/send-email/dp', [EmailController::class, 'sendEmailDiegoPenaVicente']);
+    Route::post('/send-email/olimed', [EmailController::class, 'sendEmailOlimed']);
+    Route::post('/send-email/lanonnarose', [EmailController::class, 'sendEmailLaNonnaRose']);
+
+
+    Route::get('/content-web/all', [ApiWebController::class, 'fetchWebData']);
+
+});
