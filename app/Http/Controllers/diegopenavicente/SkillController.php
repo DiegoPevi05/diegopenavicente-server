@@ -93,7 +93,7 @@ class SkillController extends Controller
 
         $validatedData = $request->validate([
             'title'=> 'required|string|max:255',
-            'image'=> 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'image'=> 'required|image|mimes:jpeg,png,jpg,webp,avif|max:2048',
             'description_es' => 'required|string',
             'description_en'=> 'required|string',
             'description_it'=> 'required|string',
@@ -105,7 +105,7 @@ class SkillController extends Controller
             'title.max' => 'El nombre de la habilidad no debe exceder los 255 caracteres.',
             'image.required' => 'La imagen es requerida.',
             'image.image' => 'El archivo debe ser una imagen.',
-            'image.mimes' => 'El archivo debe ser una imagen con formato jpeg, png, jpg, webp.',
+            'image.mimes' => 'El archivo debe ser una imagen con formato jpeg, png, jpg, webp, avif.',
             'image.max' => 'El tamaño de la imagen no debe exceder los 2048 kilobytes.',
             'description_es.required' => 'El contenido en español es requerido.',
             'description_en.required' => 'El contenido en ingles es requerido.',
@@ -166,7 +166,7 @@ class SkillController extends Controller
     {
         $validatedData = $request->validate([
             'title'=> 'required|string|max:255',
-            'image'=> 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'image'=> 'nullable|image|mimes:jpeg,png,jpg,webp,avif|max:2048',
             'description_es' => 'required|string',
             'description_en'=> 'required|string',
             'description_it'=> 'required|string',
@@ -177,7 +177,7 @@ class SkillController extends Controller
             'title.string' => 'El nombre de la habilidad debe ser un texto.',
             'title.max' => 'El nombre de la habilidad no debe exceder los 255 caracteres.',
             'image.image' => 'El archivo debe ser una imagen.',
-            'image.mimes' => 'El archivo debe ser una imagen con formato jpeg, png, jpg, webp.',
+            'image.mimes' => 'El archivo debe ser una imagen con formato jpeg, png, jpg, webp, avif.',
             'image.max' => 'El tamaño de la imagen no debe exceder los 2048 kilobytes.',
             'description_es.required' => 'El contenido en español es requerido.',
             'description_en.required' => 'El contenido en ingles es requerido.',

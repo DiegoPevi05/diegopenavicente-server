@@ -88,7 +88,7 @@ class BookController extends Controller
             'content_en'=> 'required|string',
             'content_it'=> 'required|string',
             'href'=> 'required|string',
-            'img' => 'required|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'img' => 'required|image|mimes:jpeg,jpg,png,webp,avif|max:2048',
         ], [
             'title.required' => 'El nombre de la habilidad es requerido.',
             'type.required' => 'El tipo de la habilidad es requerido.',
@@ -99,7 +99,7 @@ class BookController extends Controller
             'href.required' => 'El enlace es requerido.',
             'img.required' => 'La imagen es requerida.',
             'img.image' => 'El archivo debe ser una imagen.',
-            'img.mimes' => 'El archivo debe ser de tipo: jpeg, jpg, png, webp.',
+            'img.mimes' => 'El archivo debe ser de tipo: jpeg, jpg, png, webp, avif.',
             'img.max' => 'El tamaño máximo del archivo es 2MB.'
         ]);
 
@@ -161,7 +161,7 @@ class BookController extends Controller
             'content_en'=> 'required|string',
             'content_it'=> 'required|string',
             'href'=> 'required|string',
-            'img' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'img' => 'nullable|image|mimes:jpeg,jpg,png,webp,avif|max:2048',
         ], [
             'title.required' => 'El nombre de la habilidad es requerido.',
             'type.required' => 'El tipo de la habilidad es requerido.',
@@ -171,7 +171,7 @@ class BookController extends Controller
             'content_it.required' => 'El contenido en italiano es requerido.',
             'href.required' => 'El enlace es requerido.',
             'img.image' => 'El archivo debe ser una imagen.',
-            'img.mimes' => 'El archivo debe ser de tipo: jpeg, jpg, png, webp.',
+            'img.mimes' => 'El archivo debe ser de tipo: jpeg, jpg, png, webp, avif.',
             'img.max' => 'El tamaño máximo del archivo es 2MB.'
         ]);
 

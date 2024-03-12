@@ -109,7 +109,7 @@
                 <div class="form-group my-2">
                     <label for="details_en" class="my-2">Detalles en Inglés</label>
                     <p class="text-muted">*Agregue detalles de la experiencia en inglés</p>
-                    <textarea class="form-control" id="details_en_span" name="details_en_span" rows="3">{{ old('details_en') }}</textarea>
+                    <textarea class="form-control" id="details_en_span" name="details_en_span" rows="3"></textarea>
                     <div class="flex flex-row my-2">
                         <button type="button" class="btn btn-indigo" id="add-detail-en">Agregar Detalle</button>
                         <button type="button" class="btn btn-danger" id="remove-detail-en" disabled>Remover Detalle</button>
@@ -124,7 +124,7 @@
                 <div class="form-group my-2">
                     <label for="details_it" class="my-2">Detalles en Italiano</label>
                     <p class="text-muted">*Agregue detalles de la experiencia en italiano</p>
-                    <textarea class="form-control" id="details_it_span" name="details_it_span" rows="3">{{ old('details_it') }}</textarea>
+                    <textarea class="form-control" id="details_it_span" name="details_it_span" rows="3"></textarea>
                     <div class="flex flex-row my-2">
                         <button type="button" class="btn btn-indigo" id="add-detail-it">Agregar Detalle</button>
                         <button type="button" class="btn btn-danger" id="remove-detail-it" disabled>Remover Detalle</button>

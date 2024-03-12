@@ -78,7 +78,7 @@ class ProjectController extends Controller
     {
         $validatedData = $request->validate([
             'project'=> 'required|string|max:255',
-            'logo' => 'required|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'logo' => 'required|image|mimes:jpeg,jpg,png,webp,avif|max:2048',
             'description_es' => 'required|string',
             'description_en'=> 'required|string',
             'description_it'=> 'required|string',
@@ -90,7 +90,7 @@ class ProjectController extends Controller
             'project.required' => 'El nombre del proyecto es requerido.',
             'logo.required' => 'La imagen es requerida.',
             'logo.image' => 'El archivo debe ser una imagen.',
-            'logo.mimes' => 'El archivo debe ser una imagen con formato jpeg, jpg, png, webp.',
+            'logo.mimes' => 'El archivo debe ser una imagen con formato jpeg, jpg, png, webp, avif.',
             'logo.max' => 'El tamaño de la imagen no debe exceder los 2048 kilobytes.',
             'description_es.required' => 'El contenido en español es requerido.',
             'description_en.required' => 'El contenido en ingles es requerido.',
@@ -160,7 +160,7 @@ class ProjectController extends Controller
 
         $validatedData = $request->validate([
             'project'=> 'required|string|max:255',
-            'logo' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'logo' => 'nullable|image|mimes:jpeg,jpg,png,webp,avif|max:2048',
             'description_es' => 'required|string',
             'description_en'=> 'required|string',
             'description_it'=> 'required|string',
@@ -171,7 +171,7 @@ class ProjectController extends Controller
         ], [
             'project.required' => 'El nombre del proyecto es requerido.',
             'logo.image' => 'El archivo debe ser una imagen.',
-            'logo.mimes' => 'El archivo debe ser una imagen con formato jpeg, jpg, png, webp.',
+            'logo.mimes' => 'El archivo debe ser una imagen con formato jpeg, jpg, png, webp, avif.',
             'logo.max' => 'El tamaño de la imagen no debe exceder los 2048 kilobytes.',
             'description_es.required' => 'El contenido en español es requerido.',
             'description_en.required' => 'El contenido en ingles es requerido.',
