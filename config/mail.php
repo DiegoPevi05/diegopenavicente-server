@@ -41,6 +41,10 @@ return [
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME_DP'),
             'password' => env('MAIL_PASSWORD_DP'),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS_DP'),
+                'name' => 'diegopenavicente',
+            ],
             'timeout' => null,
         ],
 
@@ -51,6 +55,10 @@ return [
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME_OLIMED'),
             'password' => env('MAIL_PASSWORD_OLIMED'),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS_OLIMED'),
+                'name' => 'olimed',
+            ],
             'timeout' => null,
         ],
 
@@ -61,6 +69,10 @@ return [
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME_LANONNAROSE'),
             'password' => env('MAIL_PASSWORD_LANONNAROSE'),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS_LANONNAROSE'),
+                'name' => 'lanonnarose',
+            ],
             'timeout' => null,
         ],
 
