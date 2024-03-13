@@ -7,6 +7,10 @@ use App\Models\diegopenavicente\Experience;
 use App\Models\diegopenavicente\Project;
 use App\Models\diegopenavicente\Skill;
 use App\Models\diegopenavicente\WebContent;
+/// LA NONNA ROSE
+use App\Models\lanonnarose\Blog;
+use App\Models\lanonnarose\Product;
+use App\Models\lanonnarose\WebContent as WebContentLaNonnaRose;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
@@ -57,6 +61,23 @@ class ApiWebController extends Controller
         ]);
     }
 
-    
+    public function fetchWebDataLaNonnaRose(){
+
+        $webContent = WebContentLaNonnaRose::all();
+        $blogs = Blog::all();
+        $products = Product::all();
+
+        $blogs->map(function ($blog) {
+            $blog->bulletpoints_es = explode('|', $blog->bulletpoints_es);
+            $blog->bulletpoints_en = explode('|', $blog->bulletpoints_en);
+            return $blog;
+        });
+
+        return response()->json([
+            'webContent' => $webContent,
+            'blogs' => $blogs,
+            'products' => $products
+        ]);
+    }
     
 }

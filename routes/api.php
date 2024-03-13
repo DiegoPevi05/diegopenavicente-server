@@ -27,5 +27,6 @@ Route::middleware('api_key')->group(function () {
 
 
     Route::get('/content-web/all', [ApiWebController::class, 'fetchWebData']);
+    Route::get('/content-web/all/lanonnarose', [ApiWebController::class, 'fetchWebDataLaNonnaRose']);
 
 });

@@ -55,6 +55,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'ensurePackageAccess' => \App\Http\Middleware\EnsurePackageAccess::class,
         'api_key' => \App\Http\Middleware\ApiKeyMiddleware::class,
         'role' => \App\Http\Middleware\EnsureRole::class,
         'auth' => \App\Http\Middleware\Authenticate::class,

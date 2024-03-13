@@ -10,6 +10,10 @@ use App\Http\Controllers\diegopenavicente\ExperienceController;
 use App\Http\Controllers\diegopenavicente\SkillController;
 use App\Http\Controllers\diegopenavicente\ProjectController;
 use App\Http\Controllers\diegopenavicente\WebContentController;
+//La nonna Rose Controllers
+use App\Http\Controllers\lanonnarose\BlogController;
+use App\Http\Controllers\lanonnarose\ProductController;
+use App\Http\Controllers\lanonnarose\WebContentController as LaNonnaRoseWebContentController;
 use App\Models\User;
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +54,36 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware('role:' . User::ROLE_CLIENT)->group(function () {
         Route::resource('user-profile', UserProfileController::class)->only(['show', 'edit', 'update']);
+
+        Route::middleware('ensurePackageAccess:lanonnarose')->group(function () {
+            Route::resource('blogs', BlogController::class)->names([
+                'index' => 'lanonnarose.blogs.index',
+                'create' => 'lanonnarose.blogs.create',
+                'store' => 'lanonnarose.blogs.store',
+                'show' => 'lanonnarose.blogs.show',
+                'edit' => 'lanonnarose.blogs.edit',
+                'update' => 'lanonnarose.blogs.update',
+                'destroy' => 'lanonnarose.blogs.destroy',
+            ]);
+            Route::resource('products', ProductController::class)->names([
+                'index' => 'lanonnarose.products.index',
+                'create' => 'lanonnarose.products.create',
+                'store' => 'lanonnarose.products.store',
+                'show' => 'lanonnarose.products.show',
+                'edit' => 'lanonnarose.products.edit',
+                'update' => 'lanonnarose.products.update',
+                'destroy' => 'lanonnarose.products.destroy',
+            ]);
+            Route::resource('webcontents', LaNonnaRoseWebContentController::class)->names([
+                'index' => 'lanonnarose.webcontents.index',
+                'create' => 'lanonnarose.webcontents.create',
+                'store' => 'lanonnarose.webcontents.store',
+                'show' => 'lanonnarose.webcontents.show',
+                'edit' => 'lanonnarose.webcontents.edit',
+                'update' => 'lanonnarose.webcontents.update',
+                'destroy' => 'lanonnarose.webcontents.destroy',
+            ]);
+        });
     });
 });
 

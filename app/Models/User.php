@@ -77,6 +77,7 @@ class User extends Authenticatable
                         'className' => $fullyQualifiedClassName,
                         'icon' => $controllerInstance->icon,
                         'label' => $controllerInstance->label,
+                        'package' => $package,
                     ];
                 }
             }
