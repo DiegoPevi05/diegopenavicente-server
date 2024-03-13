@@ -129,6 +129,17 @@
                     @enderror
                 </div>
                 <div class="form-group my-2">
+                <label for="language">Idioma del usuario</label>
+                <select class="form-control @error('language') is-invalid @enderror" id="language" name="language">
+                    <option value="es" {{ old('language', $user->language) === 'es' ? 'selected' : '' }}>Español</option>
+                    <option value="en" {{ old('language', $user->language) === 'en' ? 'selected' : '' }}>Ingles</option>
+                    <option value="it" {{ old('language', $user->language) === 'it' ? 'selected' : '' }}>Italiano</option>
+                </select>
+                @error('language')
+                <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
+                </div>
+                <div class="form-group my-2">
                     <div class="d-flex flex-column col-12 ">
                         <label for="logo" class="my-2">Imagen del Logo</label>
                         <span>*Solo se permite archivos de tipo: jpeg, png, svg, webp. Tamaño máximo: 2MB. </span>

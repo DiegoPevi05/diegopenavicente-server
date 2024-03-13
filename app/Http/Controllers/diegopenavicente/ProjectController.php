@@ -53,7 +53,7 @@ class ProjectController extends Controller
 
         // Redirect to the first page if the requested page is not valid
         if ($page && ($page < 1 || $page > $projects->lastPage())) {
-            return redirect()->route('projects.index');
+            return redirect()->route($this->package . '.projects.index');
         }
 
         $searchParam = $project ? $project : '';
@@ -133,7 +133,7 @@ class ProjectController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('projects.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.projects.index')->with('logSuccess', $return_message);
     }
 
     /**
@@ -228,7 +228,7 @@ class ProjectController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('projects.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.projects.index')->with('logSuccess', $return_message);
     }
 
     /**
@@ -251,6 +251,6 @@ class ProjectController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('projects.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.projects.index')->with('logSuccess', $return_message);
     }
 }

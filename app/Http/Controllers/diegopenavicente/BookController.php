@@ -57,7 +57,7 @@ class BookController extends Controller
 
         // Redirect to the first page if the requested page is not valid
         if ($page && ($page < 1 || $page > $books->lastPage())) {
-            return redirect()->route('books.index');
+            return redirect()->route($this->package . '.books.index');
         }
 
         $searchParam = $title ? $title : '';
@@ -129,7 +129,7 @@ class BookController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('books.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.books.index')->with('logSuccess', $return_message);
     }
 
     /**
@@ -213,7 +213,7 @@ class BookController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('books.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.books.index')->with('logSuccess', $return_message);
     }
 
     /**
@@ -236,6 +236,6 @@ class BookController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('books.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.books.index')->with('logSuccess', $return_message);
     }
 }

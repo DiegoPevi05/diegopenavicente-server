@@ -15,7 +15,7 @@
             </div>
             <div class="col-auto ms-auto">
                 <div class="btn-list">
-                    <form action="{{ route('webcontents.create') }}" method="POST">
+                    <form action="{{ route('diegopenavicente.webcontents.create') }}" method="POST">
                         @csrf
                         @method('GET')
                         <button type="submit" class="btn btn-indigo d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <form class="d-flex flex-row form-inline py-2 col-5 gap-2 mb-4" action="{{ route('webcontents.index') }}" method="GET">
+    <form class="d-flex flex-row form-inline py-2 col-5 gap-2 mb-4" action="{{ route('diegopenavicente.webcontents.index') }}" method="GET">
         <input class="form-control mr-sm-2" type="search" name="name" placeholder="Buscar por nombre" aria-label="Search">
         <button class="btn btn-indigo my-2 my-sm-0 col-3" type="submit">Buscar</button>
     </form>
@@ -82,7 +82,7 @@
                     @endif
                     <td>
                         <div class="btn-group btn-group-sm gap-2" role="group">
-                            <form action="{{ route('webcontents.edit', $webcontent) }}" method="POST">
+                            <form action="{{ route('diegopenavicente.webcontents.edit',  ['webcontentsdp' => $webcontent]) }}" method="POST">
                                 @csrf
                                 @method('GET')
                                 <button type="submit" class="btn btn-indigo btn-md btn-icon">
@@ -95,7 +95,7 @@
                                 </button>
                             </form>
                             <form action="#" method="POST">
-                                <a href="#" data-delete-webcontent="{{ route('webcontents.destroy', $webcontent) }}" data-bs-toggle="modal" data-bs-target="#modal-delete-webcontent" class="btn btn-red btn-md btn-icon h-6 w-6">
+                                <a href="#" data-delete-webcontent="{{ route('diegopenavicente.webcontents.destroy',  ['webcontentsdp' => $webcontent]) }}" data-bs-toggle="modal" data-bs-target="#modal-delete-webcontent" class="btn btn-red btn-md btn-icon h-6 w-6">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <path d="M4 7l16 0"></path>
@@ -114,11 +114,11 @@
         </table>
         <nav aria-label="Page navigation example" class="mt-4">
             <ul class="pagination gap-2">
-                <li class="btn btn-indigo btn-sm rounded"><a class="text-white no-underline px-2" href="{{ route('webcontents.index', ['page' => ($webcontents->currentPage()-1)]) }}">Anterior</a></li>
+                <li class="btn btn-indigo btn-sm rounded"><a class="text-white no-underline px-2" href="{{ route('diegopenavicente.webcontents.index', ['page' => ($webcontents->currentPage()-1)]) }}">Anterior</a></li>
                 @for ($i = 1; $i <= $webcontents->lastPage(); $i++)
-                    <li class="btn btn-indigo btn-sm bg-indigo {{ ($i == $webcontents->currentPage()) ? ' active' : '' }}"><a class="page-link bg-indigo" href="{{ route('webcontents.index', ['page' => $i]) }}">{{ $i }}</a></li>
+                    <li class="btn btn-indigo btn-sm bg-indigo {{ ($i == $webcontents->currentPage()) ? ' active' : '' }}"><a class="page-link bg-indigo" href="{{ route('diegopenavicente.webcontents.index', ['page' => $i]) }}">{{ $i }}</a></li>
                 @endfor
-                <li class="btn btn-indigo btn-sm rounded"><a class="text-white no-underline px-2" href="{{ route('webcontents.index', ['page' => ($webcontents->currentPage()+1)]) }}">Siguiente</a></li>
+                <li class="btn btn-indigo btn-sm rounded"><a class="text-white no-underline px-2" href="{{ route('diegopenavicente.webcontents.index', ['page' => ($webcontents->currentPage()+1)]) }}">Siguiente</a></li>
             </ul>
         </nav>
     </div>

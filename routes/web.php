@@ -43,14 +43,56 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware('role:' . User::ROLE_ADMIN)->group(function () {
         Route::resource('users', UserController::class);
-        Route::resource('books', BookController::class);
-        Route::resource('experiences', ExperienceController::class);
-        Route::resource('skills', SkillController::class);
-        Route::resource('projects', ProjectController::class);
-        Route::resource('webcontents', WebContentController::class);
+        Route::resource('books', BookController::class)->names([
+            'index' => 'diegopenavicente.books.index',
+            'create' => 'diegopenavicente.books.create',
+            'store' => 'diegopenavicente.books.store',
+            'show' => 'diegopenavicente.books.show',
+            'edit' => 'diegopenavicente.books.edit',
+            'update' => 'diegopenavicente.books.update',
+            'destroy' => 'diegopenavicente.books.destroy',
+        ]);
+        Route::resource('experiences', ExperienceController::class)->names([
+            'index' => 'diegopenavicente.experiences.index',
+            'create' => 'diegopenavicente.experiences.create',
+            'store' => 'diegopenavicente.experiences.store',
+            'show' => 'diegopenavicente.experiences.show',
+            'edit' => 'diegopenavicente.experiences.edit',
+            'update' => 'diegopenavicente.experiences.update',
+            'destroy' => 'diegopenavicente.experiences.destroy',
+        ]);
+        Route::resource('skills', SkillController::class)->names([
+            'index' => 'diegopenavicente.skills.index',
+            'create' => 'diegopenavicente.skills.create',
+            'store' => 'diegopenavicente.skills.store',
+            'show' => 'diegopenavicente.skills.show',
+            'edit' => 'diegopenavicente.skills.edit',
+            'update' => 'diegopenavicente.skills.update',
+            'destroy' => 'diegopenavicente.skills.destroy',
+        ]);
+        Route::resource('projects', ProjectController::class)->names([
+            'index' => 'diegopenavicente.projects.index',
+            'create' => 'diegopenavicente.projects.create',
+            'store' => 'diegopenavicente.projects.store',
+            'show' => 'diegopenavicente.projects.show',
+            'edit' => 'diegopenavicente.projects.edit',
+            'update' => 'diegopenavicente.projects.update',
+            'destroy' => 'diegopenavicente.projects.destroy',
+        ]);
+        Route::resource('webcontentsdp', WebContentController::class)->names([
+            'index' => 'diegopenavicente.webcontents.index',
+            'create' => 'diegopenavicente.webcontents.create',
+            'store' => 'diegopenavicente.webcontents.store',
+            'show' => 'diegopenavicente.webcontents.show',
+            'edit' => 'diegopenavicente.webcontents.edit',
+            'update' => 'diegopenavicente.webcontents.update',
+            'destroy' => 'diegopenavicente.webcontents.destroy',
+        ]);
         Route::get('/search-skills',[SkillController::class,'SearchByTitle']);
         
     });
+
+    
 
     Route::middleware('role:' . User::ROLE_CLIENT)->group(function () {
         Route::resource('user-profile', UserProfileController::class)->only(['show', 'edit', 'update']);
@@ -85,5 +127,7 @@ Route::middleware(['auth'])->group(function () {
             ]);
         });
     });
+
+    
 });
 

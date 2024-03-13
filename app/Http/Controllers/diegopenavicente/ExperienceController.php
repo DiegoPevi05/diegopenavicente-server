@@ -67,7 +67,7 @@ class ExperienceController extends Controller
 
         // Redirect to the first page if the requested page is not valid
         if ($page && ($page < 1 || $page > $experiences->lastPage())) {
-            return redirect()->route('experiences.index');
+            return redirect()->route($this->package . '.experiences.index');
         }
 
         $searchParam = $company ? $company : '';
@@ -179,7 +179,7 @@ class ExperienceController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('experiences.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.experiences.index')->with('logSuccess', $return_message);
     }
 
     /**
@@ -306,7 +306,7 @@ class ExperienceController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('experiences.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.experiences.index')->with('logSuccess', $return_message);
     }
 
     /**
@@ -330,6 +330,6 @@ class ExperienceController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('experiences.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.experiences.index')->with('logSuccess', $return_message);
     }
 }

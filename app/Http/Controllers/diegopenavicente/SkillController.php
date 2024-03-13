@@ -68,7 +68,7 @@ class SkillController extends Controller
 
         // Redirect to the first page if the requested page is not valid
         if ($page && ($page < 1 || $page > $skills->lastPage())) {
-            return redirect()->route('skills.index');
+            return redirect()->route($this->package . '.skills.index');
         }
 
         $searchParam = $title ? $title : '';
@@ -140,7 +140,7 @@ class SkillController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('skills.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.skills.index')->with('logSuccess', $return_message);
     }
 
     /**
@@ -224,7 +224,7 @@ class SkillController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('skills.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.skills.index')->with('logSuccess', $return_message);
     }
 
     /**
@@ -247,6 +247,6 @@ class SkillController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('skills.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.skills.index')->with('logSuccess', $return_message);
     }
 }

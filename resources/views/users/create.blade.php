@@ -138,19 +138,19 @@
                 @enderror
             </div>
             <div class="form-group my-2">
-                <label for="notify_lng">Idioma de la Notificacion</label>
-                <select class="form-control @error('notify_lng') is-invalid @enderror" id="notify_lng" name="notify_lng">
+                <label for="language">Idioma del usuario</label>
+                <select class="form-control @error('language') is-invalid @enderror" id="language" name="language">
                     <option value="es" selected>Español</option>
                     <option value="en">Ingles</option>
                     <option value="it">Italiano</option>
                 </select>
-                @error('notify_lng')
+                @error('language')
                 <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
             <div class="form-group my-2">
                 <div class="d-flex flex-column col-12 ">
-                    <label for="logo" class="my-2">Imagen de Perfil</label>
+                    <label for="logo" class="my-2">Imagen de Logo</label>
                     <span>*Solo se permite archivos de tipo: jpeg, png, webp. Tamaño máximo: 2MB. </span>
                 </div>
                 <div class="input-group">

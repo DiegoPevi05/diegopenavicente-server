@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-auto ms-auto">
                     <div class="btn-list">
-                        <form action="{{ route('books.index') }}" method="POST">
+                        <form action="{{ route('diegopenavicente.books.index') }}" method="POST">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-indigo d-none d-sm-inline-block " data-bs-toggle="modal" data-bs-target="#modal-report">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ route('books.update',$book) }}" class="row flex-column flex-md-row" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('diegopenavicente.books.update',$book) }}" class="row flex-column flex-md-row" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="col-12 col-md-6">
@@ -124,7 +124,7 @@
                 <div class="alert alert-danger" role="alert">
                     "Hubo un error al intentar traer la información del Libero, por favor intente de nuevo."
                 </div>
-                <a href={{ route('books.index') }} class="btn btn-primary">Voler a la lista de Libros</a>
+                <a href={{ route('diegopenavicente.books.index') }} class="btn btn-primary">Voler a la lista de Libros</a>
             </div>
         </div>
     @endif

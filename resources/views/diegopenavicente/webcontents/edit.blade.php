@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-auto ms-auto">
                     <div class="btn-list">
-                        <form action="{{ route('webcontents.index') }}" method="POST">
+                        <form action="{{ route('diegopenavicente.webcontents.index') }}" method="POST">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-indigo d-none d-sm-inline-block " data-bs-toggle="modal" data-bs-target="#modal-report">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <form method="POST" action="{{ route('webcontents.update',$webcontent) }}" class="row flex-column flex-md-row" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('diegopenavicente.webcontents.update', ['webcontentsdp' => $webcontent->id]) }}" class="row flex-column flex-md-row" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="col-12 col-md-6">
@@ -77,7 +77,7 @@
                 <div class="alert alert-danger" role="alert">
                     "Hubo un error al intentar traer la información del contenido web, por favor intente de nuevo."
                 </div>
-                <a href={{ route('webcontents.index') }} class="btn btn-primary">Voler a la lista de Contenido Web</a>
+                <a href={{ route('diegopenavicente.webcontents.index') }} class="btn btn-primary">Voler a la lista de Contenido Web</a>
             </div>
         </div>
     @endif

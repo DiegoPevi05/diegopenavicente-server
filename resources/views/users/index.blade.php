@@ -49,6 +49,7 @@
                 <th>mes de facturacion</th>
                 <th>monto bruto</th>
                 <th>rol</th>
+                <th>idioma</th>
                 <th>logo</th>
                 <th>website</th>
                 <th class="no-sort">Acciones</th>
@@ -76,6 +77,7 @@
                     @if($user->role == 'CLIENT')
                         <td>Cliente</td>
                     @endif
+                    <td>{{ $user->language }}</td>
                     @if($user->website)
                         <td>
                             <a href="{{ $user->website }}" target="_blank" class="btn btn-indigo btn-md btn-icon">

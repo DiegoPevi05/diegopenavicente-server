@@ -11,7 +11,7 @@
             </div>
             <div class="col-auto ms-auto">
                 <div class="btn-list">
-                    <form action="{{ route('webcontents.index') }}" method="POST">
+                    <form action="{{ route('diegopenavicente.webcontents.index') }}" method="POST">
                         @csrf
                         @method('GET')
                         <button type="submit" class="btn btn-indigo d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <form method="POST" action="{{ route('webcontents.store') }}" class="row flex-column flex-md-row" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('diegopenavicente.webcontents.store') }}" class="row flex-column flex-md-row" enctype="multipart/form-data">
         @csrf
         @method('POST')
         <div class="col-12 col-md-6">

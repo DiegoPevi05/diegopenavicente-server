@@ -15,7 +15,7 @@
             </div>
             <div class="col-auto ms-auto">
                 <div class="btn-list">
-                    <form action="{{ route('projects.create') }}" method="POST">
+                    <form action="{{ route('diegopenavicente.projects.create') }}" method="POST">
                         @csrf
                         @method('GET')
                         <button type="submit" class="btn btn-indigo d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#modal-report">
@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <form class="d-flex flex-row form-inline py-2 col-5 gap-2 mb-4" action="{{ route('projects.index') }}" method="GET">
+    <form class="d-flex flex-row form-inline py-2 col-5 gap-2 mb-4" action="{{ route('diegopenavicente.projects.index') }}" method="GET">
         <input class="form-control mr-sm-2" type="search" name="project" placeholder="Buscar por proyecto" aria-label="Search">
         <button class="btn btn-indigo my-2 my-sm-0 col-3" type="submit">Buscar</button>
     </form>
@@ -104,7 +104,7 @@
                     @endif
                     <td>
                         <div class="btn-group btn-group-sm gap-2" role="group">
-                            <form action="{{ route('projects.edit', $project) }}" method="POST">
+                            <form action="{{ route('diegopenavicente.projects.edit', $project) }}" method="POST">
                                 @csrf
                                 @method('GET')
                                 <button type="submit" class="btn btn-indigo btn-md btn-icon">
@@ -117,7 +117,7 @@
                                 </button>
                             </form>
                             <form action="#" method="POST">
-                                <a href="#" data-delete-project="{{ route('projects.destroy', $project) }}" data-bs-toggle="modal" data-bs-target="#modal-delete-project" class="btn btn-red btn-md btn-icon h-6 w-6">
+                                <a href="#" data-delete-project="{{ route('diegopenavicente.projects.destroy', $project) }}" data-bs-toggle="modal" data-bs-target="#modal-delete-project" class="btn btn-red btn-md btn-icon h-6 w-6">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <path d="M4 7l16 0"></path>
@@ -136,11 +136,11 @@
         </table>
         <nav aria-label="Page navigation example" class="mt-4">
             <ul class="pagination gap-2">
-                <li class="btn btn-indigo btn-sm rounded"><a class="text-white no-underline px-2" href="{{ route('projects.index', ['page' => ($projects->currentPage()-1)]) }}">Anterior</a></li>
+                <li class="btn btn-indigo btn-sm rounded"><a class="text-white no-underline px-2" href="{{ route('diegopenavicente.projects.index', ['page' => ($projects->currentPage()-1)]) }}">Anterior</a></li>
                 @for ($i = 1; $i <= $projects->lastPage(); $i++)
-                    <li class="btn btn-indigo btn-sm bg-indigo {{ ($i == $projects->currentPage()) ? ' active' : '' }}"><a class="page-link bg-indigo" href="{{ route('projects.index', ['page' => $i]) }}">{{ $i }}</a></li>
+                    <li class="btn btn-indigo btn-sm bg-indigo {{ ($i == $projects->currentPage()) ? ' active' : '' }}"><a class="page-link bg-indigo" href="{{ route('diegopenavicente.projects.index', ['page' => $i]) }}">{{ $i }}</a></li>
                 @endfor
-                <li class="btn btn-indigo btn-sm rounded"><a class="text-white no-underline px-2" href="{{ route('projects.index', ['page' => ($projects->currentPage()+1)]) }}">Siguiente</a></li>
+                <li class="btn btn-indigo btn-sm rounded"><a class="text-white no-underline px-2" href="{{ route('diegopenavicente.projects.index', ['page' => ($projects->currentPage()+1)]) }}">Siguiente</a></li>
             </ul>
         </nav>
     </div>

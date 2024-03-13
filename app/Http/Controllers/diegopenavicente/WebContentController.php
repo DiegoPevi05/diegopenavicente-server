@@ -54,7 +54,7 @@ class WebContentController extends Controller
 
         // Redirect to the first page if the requested page is not valid
         if ($page && ($page < 1 || $page > $webcontents->lastPage())) {
-            return redirect()->route('webcontents.index');
+            return redirect()->route($this->package . '.webcontents.index');
         }
 
         $searchParam = $name ? $name : '';
@@ -100,7 +100,7 @@ class WebContentController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('webcontents.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.webcontents.index')->with('logSuccess', $return_message);
     }
 
     /**
@@ -114,16 +114,20 @@ class WebContentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(WebContent $webcontent)
+    public function edit(WebContent $webcontentsdp)
     {
+        $webcontent = $webcontentsdp;
+
         return view($this->package . '.webcontents.edit', compact('webcontent'))->with('editMode', true);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, WebContent $webcontent)
+    public function update(Request $request, WebContent $webcontentsdp)
     {
+        $webcontent = $webcontentsdp;
+
         $validatedData = $request->validate([
             'name'=> 'required|string|max:255',
             'content_es' => 'required|string',
@@ -147,14 +151,15 @@ class WebContentController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('webcontents.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.webcontents.index')->with('logSuccess', $return_message);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(WebContent $webcontent)
+    public function destroy(WebContent $webcontentsdp)
     {
+        $webcontent = $webcontentsdp;
 
         $webcontent->delete();
 
@@ -162,6 +167,6 @@ class WebContentController extends Controller
 
         $this->logService->Log(1,$return_message);
 
-        return redirect()->route('webcontents.index')->with('logSuccess', $return_message);
+        return redirect()->route($this->package . '.webcontents.index')->with('logSuccess', $return_message);
     }
 }

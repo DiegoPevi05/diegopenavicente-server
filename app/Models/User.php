@@ -41,6 +41,7 @@ class User extends Authenticatable
         'recover_token_time',
         'logo',
         'website',
+        'language',
     ];
 
     public function ExistControllerPackage(){

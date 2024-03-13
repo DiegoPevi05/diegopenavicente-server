@@ -98,9 +98,9 @@ class UserController extends Controller
             'unique_payment' => 'required|numeric|min:0',
             'role' => 'required|in:' . User::ROLE_CLIENT,
             'notify' => 'nullable',
-            'notify_lng' => 'nullable|in:es,en,it',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'website' => 'nullable|string',
+            'language' => 'nullable|in:es,en,it',
         ], [
             'name.required' => 'El campo nombre es obligatorio.',
             'name.max' => 'El campo nombre no puede tener más de 25 caracteres.',
@@ -129,12 +129,12 @@ class UserController extends Controller
             'unique_payment.numeric' => 'El campo pago único debe ser un número.',
             'unique_payment.min' => 'El campo pago único debe ser mayor o igual a 0.',
             'unique_payment.required' => 'El campo pago único es obligatorio.',
-            'notify_lng.in' => 'El valor del campo idioma de notificación es inválido.',
             'logo.required' => 'El campo logo es obligatorio.',
             'logo.image' => 'El archivo debe ser una imagen.',
             'logo.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg, webp.',
             'logo.max' => 'El archivo no debe ser mayor a 2MB.',
             'website.string' => 'El campo sitio web debe ser una cadena de texto.',
+            'language.in' => 'El valor del campo idioma es inválido.',
         ]);
 
         $destinationPath = public_path() . $this->imageRepository;
@@ -150,11 +150,11 @@ class UserController extends Controller
 
         //Notify if its a new user
         $is_notify = isset($validatedData['notify']) && $validatedData['notify'] ? true : false;
+        $language = isset($validatedData['language']) ? $validatedData['language'] : 'es';
 
         if($is_notify){
-            $notify_lng = isset($validatedData['notify_lng']) ? $validatedData['notify_lng'] : 'es';
             
-            $notify = new NotifyCreation($validatedData['name'], $notify_lng);
+            $notify = new NotifyCreation($validatedData['name'], $language);
             Mail::mailer('default')->to($validatedData['email'])->send($notify);
         }
 
@@ -173,6 +173,7 @@ class UserController extends Controller
             'unique_payment' => $validatedData['unique_payment'],
             'logo' => $imageFileName ? $this->imageRepository . $imageFileName : null,
             'website' => $validatedData['website'],
+            'language' => $language,
         ]);
 
         $return_message = 'Usuario creado exitosamente.';
@@ -227,6 +228,7 @@ class UserController extends Controller
             'role' => 'required|in:' . User::ROLE_CLIENT,
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'website' => 'nullable|string',
+            'language' => 'nullable|in:es,en,it',
         ], [
             'name.required' => 'El campo nombre es obligatorio.',
             'name.max' => 'El campo nombre no puede tener más de 25 caracteres.',
@@ -258,6 +260,7 @@ class UserController extends Controller
             'logo.mimes' => 'El archivo debe ser de tipo: jpeg, png, jpg, gif, svg, webp.',
             'logo.max' => 'El archivo no debe ser mayor a 2MB.',
             'website.string' => 'El campo sitio web debe ser una cadena de texto.',
+            'language.in' => 'El valor del campo idioma es inválido.',
         ]);
 
         $destinationPath = public_path() . $this->imageRepository;
@@ -300,6 +303,7 @@ class UserController extends Controller
         $user->unique_payment = $validatedData['unique_payment'];
         $user->logo = $imageFileName ? $this->imageRepository . $imageFileName : null;
         $user->website = $validatedData['website'];
+        $user->language = isset($validatedData['language']) ? $validatedData['language'] : 'es';
         $user->save();
 
         $return_message = 'Usuario actualizado exitosamente.';

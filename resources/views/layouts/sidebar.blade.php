@@ -43,18 +43,6 @@
                   @endif
 
                   @if(Auth::user() && Auth::user()->ExistControllerPackage())
-                    @if(Auth::user()->role == 'ADMIN')
-                      @foreach(Auth::user()->getControllerClassesInPackageFolder() as $controller)
-                          <li class="nav-item button-sidebar {{ request()->routeIs($controller['routeName'].'.*') ? 'active' : '' }}">
-                              <a class="nav-link" href="{{ route($controller['routeName'].'.index') }}">
-                                  <span class="nav-link-title">
-                                      {!! $controller['icon'] !!}
-                                      {{ $controller['label'] }}
-                                  </span>
-                              </a>
-                          </li>
-                      @endforeach
-                    @else
                       @foreach(Auth::user()->getControllerClassesInPackageFolder() as $controller)
                           <li class="nav-item button-sidebar {{ request()->routeIs($controller['routeName'].'.*') ? 'active' : '' }}">
                               <a class="nav-link" href="{{ route($controller['package'] . '.' . $controller['routeName'].'.index') }}">
@@ -65,7 +53,6 @@
                               </a>
                           </li>
                       @endforeach
-                    @endif
                   @endif
 
 
