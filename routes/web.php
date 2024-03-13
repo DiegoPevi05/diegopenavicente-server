@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::resource('home', HomeController::class);
     Route::resource('user-profile', UserProfileControllers::class);
+    
+    Route::get('/search-skills',[SkillController::class,'SearchByTitle']);
 
     Route::middleware('role:' . User::ROLE_ADMIN)->group(function () {
         Route::resource('users', UserController::class);
@@ -88,7 +90,7 @@ Route::middleware(['auth'])->group(function () {
             'update' => 'diegopenavicente.webcontents.update',
             'destroy' => 'diegopenavicente.webcontents.destroy',
         ]);
-        Route::get('/search-skills',[SkillController::class,'SearchByTitle']);
+        
         
     });
 

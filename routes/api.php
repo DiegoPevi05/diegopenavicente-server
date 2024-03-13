@@ -24,8 +24,7 @@ Route::middleware('api_key')->group(function () {
     Route::post('/send-email/dp', [EmailController::class, 'sendEmailDiegoPenaVicente']);
     Route::post('/send-email/olimed', [EmailController::class, 'sendEmailOlimed']);
     Route::post('/send-email/lanonnarose', [EmailController::class, 'sendEmailLaNonnaRose']);
-
-
+ 
     Route::get('/content-web/all', [ApiWebController::class, 'fetchWebData']);
     Route::get('/content-web/all/lanonnarose', [ApiWebController::class, 'fetchWebDataLaNonnaRose']);
 
