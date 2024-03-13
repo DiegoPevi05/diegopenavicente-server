@@ -325,7 +325,7 @@
                 <tr>
                     <td class="header">
                         <a href="{{env('FRONTEND_URL')}}" style="display: inline-block;">
-                            <img src="{{env('FRONTEND_URL')}}/logo.svg" class="logo" alt="DP">
+                            <img src="{{env('FRONTEND_URL')}}/logo192.png" class="logo" alt="DP">
                         </a>
                     </td>
                 </tr>

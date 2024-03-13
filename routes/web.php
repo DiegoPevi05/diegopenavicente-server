@@ -41,7 +41,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('home', HomeController::class);
     Route::resource('user-profile', UserProfileControllers::class);
     
-    Route::get('/search-skills',[SkillController::class,'SearchByTitle']);
+    Route::get('/search-skills',[SkillController::class,'SearchByTitle'])->name('search-skills');
 
     Route::middleware('role:' . User::ROLE_ADMIN)->group(function () {
         Route::resource('users', UserController::class);
