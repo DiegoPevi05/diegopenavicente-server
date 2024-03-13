@@ -162,6 +162,7 @@ class BlogController extends Controller
             'image4' => $imageFileName[4] ? $this->imageRepository . $imageFileName[4] : null,
             'bulletpoints_es' => implode('|', $validatedData['bulletpoints_es']),
             'bulletpoints_en' => implode('|', $validatedData['bulletpoints_en']),
+            'isImportant' => $is_important,
         ]);
 
         $return_message = 'Blog creado exitosamente.';
@@ -281,6 +282,7 @@ class BlogController extends Controller
             'image4' => $imageFileName[4] ? $this->imageRepository . $imageFileName[4] : null,
             'bulletpoints_es' => implode('|', $validatedData['bulletpoints_es']),
             'bulletpoints_en' => implode('|', $validatedData['bulletpoints_en']),
+            'isImportant' => $is_important,
         ]);
 
         $return_message = 'Blog actualizado exitosamente.';
